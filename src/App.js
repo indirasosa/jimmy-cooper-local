@@ -1,16 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {NavBar} from "./componentes/NavBar";
-import {Container} from "react-bootstrap";
+import {NavBar} from "./componentes/NabBarComponente/NavBar";
+import { ItemListContainer } from './componentes/ItemListContainer/ItamListContainer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Container fluid>
+      <header>
         <NavBar/>
-        </Container>
-
+        <ItemListContainer/>
       </header>
     </div>
   );
