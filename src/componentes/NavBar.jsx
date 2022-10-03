@@ -2,12 +2,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import {CartWidget} from "./CartWidget";
 
 
 export const NavBar = () => {
     return (
-        <Navbar bg="light" expand="lg">
         <Container>
+        <Navbar bg="light" expand="lg">
           <Navbar.Brand href="#home">Jimmy Cooper
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -24,7 +25,8 @@ export const NavBar = () => {
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
-        </Container>
-      </Navbar>
+          <CartWidget/>
+        </Navbar>
+      </Container>
     )
 }
