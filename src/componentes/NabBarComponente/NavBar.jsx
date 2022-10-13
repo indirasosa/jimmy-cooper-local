@@ -5,20 +5,27 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import ImagenLogo from "../../img/jimmycooper.png";
 import "./NavBar.css";
 import { CartWidget } from '../CartWidget/CartWidget';
+import {Link, NavLink} from "react-router-dom";
 
 export const NavBar = () => {
     return (
       <Navbar bg="ligth" expand="lg">
       <Container>
        <img src={ImagenLogo} className="logoImg mx-4" alt="Logo" />
-        <Navbar.Brand href="#home">Jimmy Cooper</Navbar.Brand>
+        <Navbar.Brand href="/">Jimmy Cooper</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Inicio</Nav.Link>
-            <Nav.Link href="#link">Nuestro local</Nav.Link>
+            <Nav.Link >
+              <Link to="/">Inicio</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/contacto">Contacto</Link>
+            </Nav.Link>
             <NavDropdown title="Productos" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Indumentaria</NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink >Remeras</NavLink>
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Piercings
               </NavDropdown.Item>
