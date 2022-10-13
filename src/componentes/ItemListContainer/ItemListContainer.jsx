@@ -1,10 +1,11 @@
 import Container from 'react-bootstrap/Container';
+import {ItemList} from "../ItemList/ItemList";
 
 export const ItemListContainer = () => {
     return (
         <>
         <Container>
-            <p>Item List Container</p>
+            <ItemList/>
         </Container>
         </>
     )
