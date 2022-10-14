@@ -20,7 +20,9 @@ export const ItemListContainer = () => {
 
     return (
         <>
+        <div className="d-flex row m-4 center">
         <ItemList listado={listado}/>
+        </div>
         </>
     )
 }

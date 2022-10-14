@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 export const Item = ({name, price, brand, imagen})=> {
         return (
             <>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '16rem', margin:"1rem" }} >
               <Card.Img variant="top" src={imagen} />
               <Card.Body>
                 <Card.Title>{name}</Card.Title>
