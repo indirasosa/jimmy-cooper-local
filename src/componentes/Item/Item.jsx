@@ -1,6 +1,5 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import { BotonContador } from '../botonCantidad/botonCantidad';
 
 export const Item = ({name, price, brand, imagen})=> {
         return (
@@ -13,7 +12,7 @@ export const Item = ({name, price, brand, imagen})=> {
                     <p>Precio: {price}</p>
                     <p>Marca: {brand}</p>
                 </Card.Text>
-                <Button variant="dark">Detalle</Button>
+                <BotonContador/>
               </Card.Body>
             </Card>
             </>

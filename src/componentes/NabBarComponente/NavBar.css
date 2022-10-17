@@ -1,3 +1,11 @@
 .logoImg {
     height: 50px;
 }
+.claseActiva {
+    color:black;
+    text-decoration: none;
+}
+.claseInactiva {
+    color:grey;
+    text-decoration: none;
+}

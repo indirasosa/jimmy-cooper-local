@@ -9,13 +9,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-
         <NavBar/>
-
         <Routes>
           <Route path="/" element={<ItemListContainer/>}></Route>
           <Route path="/contacto" element={<Contacto/>}></Route>
-          <Route path="/category"></Route>
+          <Route path="/category/:idCaterogy" element={<ItemListContainer/>}></Route>
+          <Route path="/category/:idCaterogy" element={<ItemListContainer/>}></Route>
+          <Route path="/category/:idCaterogy" element={<ItemListContainer/>}></Route>
+          <Route path="/category/:idCaterogy" element={<ItemListContainer/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

@@ -12,24 +12,29 @@ export const NavBar = () => {
       <Navbar bg="ligth" expand="lg">
       <Container>
        <img src={ImagenLogo} className="logoImg mx-4" alt="Logo" />
-        <Navbar.Brand href="/">Jimmy Cooper</Navbar.Brand>
+        <Navbar.Brand href="/" className='claseInactiva'>Jimmy Cooper</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link >
-              <Link to="/">Inicio</Link>
+            <Link className='claseInactiva' to="/">Inicio</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/contacto">Contacto</Link>
+              <NavLink className={({isActive})=> isActive === true ? "claseActiva" : "claseInactiva"} to="/contacto">Contacto</NavLink>
             </Nav.Link>
             <NavDropdown title="Productos" id="basic-nav-dropdown">
               <NavDropdown.Item>
-                <NavLink >Remeras</NavLink>
+                <Link to="/category/remeras">Remeras</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Piercings
+              <NavDropdown.Item>
+                <Link to="/category/pantalones">Pantalones</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Accesorios</NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/category/abrigos">Abrigos</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/category/accesorios">Accesorios</Link>
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
