@@ -4,15 +4,7 @@ import {productos} from "../../productos";
 export const ItemList = () => {
     return (
         <>
-        {
-            productos.map (element => {
-                return(
-                    <>
-                    <Item name={element.name} brand={element.brand} price={element.price} imagen={element.imagen} key={element.id}/>
-                    </>    
-                )
-            })
-        }
+         {productos.map(element =><Item name={element.name} price= {element.price} brand= {element.brand} imagen= {element.imagen} key={element.id}/>)}
         </>
     )
 }

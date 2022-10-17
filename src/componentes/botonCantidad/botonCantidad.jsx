@@ -6,7 +6,6 @@ export const BotonContador = ()=> {
     const funcionCambiarCantidad = () => {
         setCambiarCantidad(cantidad+1)
     }
-
   return (
     <div className="d-flex justify-content-between border border-dark rounded m-2">
         <Button variant="outline-dark" size="sm" className="rounded-end">-</Button>
