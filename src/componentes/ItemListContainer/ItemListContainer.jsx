@@ -1,10 +1,13 @@
 import {ItemList} from "../ItemList/ItemList";
 import { productos } from "../../productos";
 import { useState, useEffect } from "react"; 
+import {useParams} from "react-router-dom";
 
 
 export const ItemListContainer = () => { 
 
+    const categoryName = useParams().categoryName;
+    
     const [catalogo, setCatalogo] = useState([])
 
     const getProductos = () => {
@@ -15,8 +18,15 @@ export const ItemListContainer = () => {
         })
     }
     useEffect(()=>{
-        getProductos().then((resultadoProductos)=>setCatalogo(resultadoProductos))
-    },[])
+        getProductos().then(resultadoProductos =>{
+            if (categoryName) {
+                const productosFiltrados = resultadoProductos.filter(elm=>elm.category === categoryName);
+                setCatalogo (productosFiltrados);
+            } else {
+                setCatalogo(resultadoProductos)
+            }
+        })
+    },[categoryName])
     
     return (
     <div className="d-flex row m-4 center">

@@ -9,7 +9,7 @@ import {Link, NavLink} from "react-router-dom";
 
 export const NavBar = () => {
     return (
-      <Navbar bg="ligth" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
        <img src={ImagenLogo} className="logoImg mx-4" alt="Logo" />
         <Navbar.Brand href="/" className='claseInactiva'>Jimmy Cooper</Navbar.Brand>
@@ -23,17 +23,20 @@ export const NavBar = () => {
               <NavLink to="/contacto" className= {({isActive})=> isActive === true ? "claseActiva" : "claseInactiva"}>Contacto</NavLink>
             </Nav.Link>
             <NavDropdown title="Productos" id="basic-nav-dropdown">
-              <NavDropdown.Item>
-                <Link to="/category/remeras">Remeras</Link>
+            <NavDropdown.Item>
+                <Link className='claseDropDown' to="/category/productos">Todos los productos</Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/category/pantalones">Pantalones</Link>
+                <Link className='claseDropDown' to="/category/remeras">Remeras</Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/category/abrigos">Abrigos</Link>
+                <Link className='claseDropDown' to="/category/pantalones">Pantalones</Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/category/accesorios">Accesorios</Link>
+                <Link className='claseDropDown' to="/category/abrigos">Abrigos</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link className='claseDropDown' to="/category/accesorios">Accesorios</Link>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

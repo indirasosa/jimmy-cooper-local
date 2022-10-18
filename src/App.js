@@ -13,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ItemListContainer/>}></Route>
           <Route path="/contacto" element={<Contacto/>}></Route>
+          <Route path="/category/productos" element={<ItemListContainer/>}></Route>
           <Route path="/category/:categoryName" element={<ItemListContainer/>}></Route>
         </Routes>
       </div>

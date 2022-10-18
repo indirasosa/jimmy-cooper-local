@@ -9,8 +9,8 @@ export const Item = ({name, price, brand, imagen})=> {
               <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>
-                    <p>Precio: {price}</p>
-                    <p>Marca: {brand}</p>
+                    Precio: {price}
+                    Marca: {brand}
                 </Card.Text>
                 <BotonContador/>
               </Card.Body>
