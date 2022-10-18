@@ -17,10 +17,10 @@ export const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link >
-            <Link className='claseInactiva' to="/">Inicio</Link>
+              <NavLink to="/" className= {({isActive})=> isActive === true ? "claseActiva" : "claseInactiva"}>Inicio</NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink className={({isActive})=> isActive === true ? "claseActiva" : "claseInactiva"} to="/contacto">Contacto</NavLink>
+              <NavLink to="/contacto" className= {({isActive})=> isActive === true ? "claseActiva" : "claseInactiva"}>Contacto</NavLink>
             </Nav.Link>
             <NavDropdown title="Productos" id="basic-nav-dropdown">
               <NavDropdown.Item>

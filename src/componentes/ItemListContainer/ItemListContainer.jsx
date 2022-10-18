@@ -1,29 +1,28 @@
 import {ItemList} from "../ItemList/ItemList";
-import {useEffect, useState} from "react";
-import {productos} from "../../productos";
-import { useParams } from "react-router-dom";
+import { productos } from "../../productos";
+import { useState, useEffect } from "react"; 
 
 
-export const ItemListContainer = () => {
-    const [listado, setListado] = useState ([]);
+export const ItemListContainer = () => { 
 
-    const idCategory = useParams().idCategory;
-    console.log(idCategory)
-    const renderizarProductos = () => {
-        return new Promise ((resolve, reject)=> {
-            setTimeout(()=> {
-                resolve(productos)
-            }, 2000);
+    const [catalogo, setCatalogo] = useState([])
+
+    const getProductos = () => {
+        return new Promise ((resolve,reject)=> {
+            setTimeout(()=>{
+                resolve (productos)
+            }, 2000)
         })
     }
-    useEffect(()=> {
-        renderizarProductos().then((catalogo)=> setListado(catalogo))
-    }, [])
+    useEffect(()=>{
+        getProductos().then((resultadoProductos)=>setCatalogo(resultadoProductos))
+    },[])
+    
     return (
-        <>
-        <div className="d-flex row m-4 center">
-        <ItemList propiedad={listado}/>
-        </div>
-        </>
+    <div className="d-flex row m-4 center">
+        <ItemList catalogo={catalogo}/>
+    </div>
     )
 }
+
+
