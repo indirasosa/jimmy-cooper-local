@@ -1,5 +1,4 @@
 import "./detailComponent.css";
-import {BotonContador} from "../botonCantidad/botonCantidad";
 import { CartButton } from "../CartButton/CartButton";
 
 export const DetailComponent = ({detalle})=> {
