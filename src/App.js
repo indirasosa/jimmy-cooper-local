@@ -5,6 +5,8 @@ import  {ItemListContainer}  from './componentes/ItemListContainer/ItemListConta
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {Contacto} from "./componentes/Contacto/Contacto";
 import {ItemDetailContainer} from "./componentes/ItemDetailContainer/ItemDetailContainer";
+import { Cart } from "./componentes/Cart/Cart";
+import { PaginaContexto } from './componentes/PaginaContexto/PaginaContexto';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/category/productos" element={<ItemListContainer/>}></Route>
           <Route path="/category/:categoryName" element={<ItemListContainer/>}></Route>
           <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
+          <Route path="/contexto" element={<PaginaContexto/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
