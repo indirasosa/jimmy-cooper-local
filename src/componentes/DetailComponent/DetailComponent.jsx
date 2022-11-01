@@ -1,13 +1,17 @@
+import { useContext } from "react";
 import "./detailComponent.css";
 import { ItemCount } from "../ItemCount/ItemCount";
-import { useState } from "react";
+import { CartContext } from "../../context/CartContext";
 
 
 export const DetailComponent = ({detalle})=> {
-    const [contador, setContador] = useState(0);
-    const addProduct = (cantidad)=> {
-        setContador(cantidad);
-      }
+
+    const {addProduct} = useContext(CartContext)
+
+    const agregarProducto = (cantidad)=>{
+        addProduct(cantidad);
+    }
+
     return(
         <>
         <div className="flex">
@@ -17,11 +21,10 @@ export const DetailComponent = ({detalle})=> {
                     <h2 className="h4 flex">{detalle.name}</h2>
                     <p className="texto flex">${detalle.price}</p>
                     <p className="texto flex">Stock: {detalle.stock}</p>
-                    <ItemCount stock={detalle.stock} initial={1} onAdd={addProduct}/>
+                    <ItemCount stock={detalle.stock} initial={1} onAdd={agregarProducto}/>
                 </div>
             </div>
         </div>
-
         </>      
     )
 }
