@@ -16,20 +16,43 @@ export const CartProvider = ({children})=> {
     //función para agregar un producto al carrito
     const addProduct = (detalle, cantidad)=>{
         if (isInCart(detalle.id)) {
+
+            //encontrar la posición del elemento 
             const indexProduct = productosCarritoCopy.findIndex((elemento)=> elemento.id === detalle.id);
+
+            //cambiar sólo la cantidad de ese elemento
             productosCarritoCopy[indexProduct].cantidad += cantidad;
+
+            //sumar los precios del mismo producto
+            productosCarritoCopy[indexProduct].precioPorCantidad = productosCarritoCopy[indexProduct].cantidad * productosCarritoCopy[indexProduct].price;
+
+            //cambiar el array de productosCarrito
             setProductosCarrito(productosCarritoCopy);
+
         } else {
+
+            //crear el objeto del nuevo producto del carrito
             const nuevoProducto = {
                 ...detalle,
-                cantidad: cantidad
+                cantidad: cantidad,
+                precioPorCantidad: cantidad*detalle.price
             }
+
+            //agregar el objeto en el array de productosCarrito
             productosCarritoCopy.push(nuevoProducto)
+
+            //cambiar el array de productosCarrito
             setProductosCarrito(productosCarritoCopy)
         }
     }
+
+    //función para calcular el precio total de la compra
+    const calcularPrecioTotal = ()=> {
+        const precioTotal = productosCarrito.reduce((acc, curr)=> acc + curr.precioPorCantidad, 0);
+        return precioTotal;
+    }
     return(
-        <CartContext.Provider value={{productosCarrito, addProduct}}>
+        <CartContext.Provider value={{productosCarrito, addProduct, calcularPrecioTotal}}>
             {children}
         </CartContext.Provider>
     )

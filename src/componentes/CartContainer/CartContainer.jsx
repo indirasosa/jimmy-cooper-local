@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext";
 
 export const CartContainer = ()=>{
     const value = useContext(CartContext)
-    const {productosCarrito} = value
+    const {productosCarrito, calcularPrecioTotal} = value
     console.log(productosCarrito)
     return(
         <div>
@@ -15,9 +15,13 @@ export const CartContainer = ()=>{
                             <p>{producto.name}</p>
                             <p>{producto.price}</p>
                             <p>{producto.cantidad}</p>
+                            <p>Precio por cantidad {producto.precioPorCantidad}</p>
                         </div>
                     ))
                 }
+            </div>
+            <div>
+                <p>Precio total: {calcularPrecioTotal()}</p>
             </div>
         </div>
     )
