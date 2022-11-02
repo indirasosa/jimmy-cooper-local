@@ -9,7 +9,7 @@ export const DetailComponent = ({detalle})=> {
     const {addProduct} = useContext(CartContext)
 
     const agregarProducto = (cantidad)=>{
-        addProduct(cantidad);
+        addProduct(detalle, cantidad);
     }
 
     return(

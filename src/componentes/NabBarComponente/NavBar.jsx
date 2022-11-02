@@ -11,8 +11,9 @@ export const NavBar = () => {
     return (
       <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-       <img src={ImagenLogo} className="logoImg mx-4" alt="Logo" />
-        <Navbar.Brand href="/" className='claseactiva'>Jimmy Cooper</Navbar.Brand>
+        <Link to="./">
+        <img src={ImagenLogo} className="logoImg mx-4" alt="Logo" />
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
