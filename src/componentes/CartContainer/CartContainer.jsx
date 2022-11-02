@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext";
 
 export const CartContainer = ()=>{
     const value = useContext(CartContext)
-    const {productosCarrito, calcularPrecioTotal} = value
+    const {productosCarrito, calcularPrecioTotal, eliminarProducto} = value
     console.log(productosCarrito)
     return(
         <div>
@@ -16,6 +16,7 @@ export const CartContainer = ()=>{
                             <p>{producto.price}</p>
                             <p>{producto.cantidad}</p>
                             <p>Precio por cantidad {producto.precioPorCantidad}</p>
+                            <button onClick={eliminarProducto()}>eliminar</button>
                         </div>
                     ))
                 }

@@ -7,6 +7,7 @@ export const CartProvider = ({children})=> {
     const [productosCarrito, setProductosCarrito] = useState([]);
 
     const productosCarritoCopy = [...productosCarrito]
+
     //función para ver si ya hay un producto igual en el carrito
     const isInCart = (id)=>{
         const productExist = productosCarrito.some((element)=> element.id === id);
@@ -51,8 +52,14 @@ export const CartProvider = ({children})=> {
         const precioTotal = productosCarrito.reduce((acc, curr)=> acc + curr.precioPorCantidad, 0);
         return precioTotal;
     }
+
+    //función para eliminar un producto del carrito
+    const eliminarProducto = (id)=>{
+        const nuevosProductos = productosCarrito.filter((elemento)=>elemento.id !== id);
+        setProductosCarrito(nuevosProductos)
+    }
     return(
-        <CartContext.Provider value={{productosCarrito, addProduct, calcularPrecioTotal}}>
+        <CartContext.Provider value={{productosCarrito, addProduct, calcularPrecioTotal, eliminarProducto}}>
             {children}
         </CartContext.Provider>
     )
