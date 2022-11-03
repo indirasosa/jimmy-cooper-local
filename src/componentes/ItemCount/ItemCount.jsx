@@ -1,4 +1,4 @@
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 import { useState} from 'react';
 
 export const ItemCount = ({stock, initial, onAdd})=> {
@@ -24,7 +24,7 @@ export const ItemCount = ({stock, initial, onAdd})=> {
         <p className="d-flex align-items-center">{count}</p>
         <Button disabled={stock===0} onClick={incrementarCantidad} variant="outline-dark" size="sm">+</Button>
       </div>
-      <div>
+      <div className='margin'>
         <Button variant="dark" onClick={() => onAdd(count)}>Agregar al carrito</Button>
       </div>
     </>

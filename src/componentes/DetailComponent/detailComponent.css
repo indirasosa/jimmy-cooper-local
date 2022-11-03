@@ -2,6 +2,9 @@
     border: 1px solid rgb(158, 156, 156);
     border-radius: 10px;
     width: 21rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .cardImg {
     width: 20rem;;
@@ -22,4 +25,12 @@
 .margin {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.itemCount{
+    width: 15rem;
+}
+.terminarCompra {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
 }

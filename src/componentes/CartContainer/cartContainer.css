@@ -17,7 +17,6 @@
 }
 .titleProduct {
     margin-bottom: 30px;
-    padding-right: 2rem;
     padding-left: 2rem;
     display: flex;
     flex-direction: row;
@@ -43,6 +42,8 @@
 .precioTotal {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 2rem;
+    margin: 2rem;
+}
+.carritoVacio{
+    margin: 3rem;
 }
