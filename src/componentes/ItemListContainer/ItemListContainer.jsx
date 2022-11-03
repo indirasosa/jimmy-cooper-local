@@ -1,32 +1,29 @@
 import {ItemList} from "../ItemList/ItemList";
-import { productos } from "../../productos";
 import { useState, useEffect } from "react"; 
-import {useParams} from "react-router-dom";
+import {collection, doc, getDoc, getDocs} from "firebase/firestore";
+import { db } from "../../utils/firebase";
 
 
 export const ItemListContainer = () => { 
 
-    const categoryName = useParams().categoryName;
-    
     const [catalogo, setCatalogo] = useState([])
 
-    const getProductos = () => {
-        return new Promise ((resolve,reject)=> {
-            setTimeout(()=>{
-                resolve (productos)
-            }, 2000)
-        })
-    }
     useEffect(()=>{
-        getProductos().then(resultadoProductos =>{
-            if (categoryName) {
-                const productosFiltrados = resultadoProductos.filter(elm=>elm.category === categoryName);
-                setCatalogo (productosFiltrados);
-            } else {
-                setCatalogo(resultadoProductos)
-            }
-        })
-    },[categoryName])
+        const getProductos = async()=>{
+            const queryRef = collection(db, "items");
+            const response = await getDocs(queryRef);
+            const documents = response.docs;
+            console.log(documents)
+            const productos = documents.map(elemento=>{
+                return({
+                    ...elemento.data(),
+                    id: elemento.id
+                })
+            })
+            setCatalogo(productos)
+        }
+        getProductos();
+    },[])
     
     return (
     <div className="d-flex row m-4 center">
