@@ -1,8 +1,8 @@
 import { DetailComponent } from "../DetailComponent/DetailComponent";
 import { useEffect, useState } from "react";
-import {productos} from "../../productos";
 import {useParams} from "react-router-dom";
-
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../utils/firebase";
 
 export const ItemDetailContainer = () => {
 
@@ -10,19 +10,17 @@ export const ItemDetailContainer = () => {
 
     const [detalle, setDetalle] = useState({})
 
-    const getProductsDetail = ()=> {
-        return new Promise ((resolve, reject) => {
-            setTimeout(()=> {
-                resolve(productos)
-            }, 1000)
-        })
-    }
-
-    useEffect (()=> {
-        getProductsDetail().then(resultado => {
-            const productoFind = resultado.find(elm=> elm.id == id)
-            setDetalle(productoFind)
-        })
+    useEffect(() =>{
+        const getProducto = async()=>{
+            const queryRef = doc(db, "items", id);
+            const response = await getDoc(queryRef);
+            const producto = {
+                ...response.data(),
+                id: response.id
+            }
+            setDetalle(producto)
+        }
+        getProducto()
     }, [id])
 
     return (

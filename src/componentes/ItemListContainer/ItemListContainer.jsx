@@ -1,12 +1,13 @@
 import {ItemList} from "../ItemList/ItemList";
 import { useState, useEffect } from "react"; 
-import {collection, doc, getDoc, getDocs, query, where} from "firebase/firestore";
+import {collection, getDocs, query, where} from "firebase/firestore";
 import { db } from "../../utils/firebase";
 import { useParams } from "react-router-dom";
 
 export const ItemListContainer = () => { 
 
     const categoryName = useParams().categoryName;
+    
     const [catalogo, setCatalogo] = useState([])
 
 
