@@ -3,6 +3,7 @@ import "./detailComponent.css";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { CartContext } from "../../context/CartContext";
 import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 export const DetailComponent = ({detalle})=> {
 
@@ -24,10 +25,14 @@ export const DetailComponent = ({detalle})=> {
                 </div>
                 <div className="terminarCompra">
                     <div className="px-2">
-                        <Button variant="outline-dark">Ver más productos</Button>
+                        <Link to="/">
+                           <Button variant="outline-dark">Ver más productos</Button>
+                        </Link>
                     </div>
                     <div className="px-2">
-                        <Button variant="dark">Terminar compra</Button>
+                        <Link to="/cart">
+                            <Button variant="dark">Terminar compra</Button>
+                        </Link>
                     </div>
                 </div>
             </div>
