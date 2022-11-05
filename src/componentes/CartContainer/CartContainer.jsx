@@ -39,7 +39,8 @@ export const CartContainer = ()=>{
         return(
             <div className="cartBody">
                 <h1 className="h4 m-3">Carrito de compras</h1>
-                <div className="carrito">
+                <div className="divFlex">
+                    <div>
                     <div className="cardContainer">
                         {
                             productosCarrito.map((producto)=>(
@@ -68,23 +69,29 @@ export const CartContainer = ()=>{
                                 <p className="h5">Precio total: {calcularPrecioTotal()}</p>
                             </div>
                         </div>
-                        <div>
-                            <form onSubmit={sendOrder}>
-                                <p>Nombre</p>
-                                <input type="text" placeholder="Nombre" />
-                                <p>Teléfono</p>
-                                <input type="tel" placeholder="Número de teléfono" />
-                                <p>Email</p>
-                                <input type="email" placeholder="Email" />
-                                <Button type="submit">Enviar orden</Button>
-                            </form>
                         </div>
+                    </div>
+                    <div>
+                    <div className="carrito">
+                    <form className="formCompra" onSubmit={sendOrder}>
+                        <h3 className="h6">Datos del comprador</h3>
+                        <p className="pt-2">Nombre</p>
+                        <input type="text" placeholder="Nombre" />
+                        <p className="pt-2">Teléfono</p>
+                        <input type="tel" placeholder="Número de teléfono" />
+                        <p className="pt-2">Email</p>
+                        <input  type="email" placeholder="Email" />
+                        <Button className="mt-3" variant="dark" type="submit">Comprar</Button>
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                    <div className="carrito">
                         {
-                            compraId && <div><p className="h6">¡La compra ha sido exitosa! Id:{compraId}</p></div>
+                            compraId && <div><p className="h4">¡La compra ha sido exitosa! Id:{compraId}</p></div>
                         }
                     </div>
                 </div>
-            </div>
         )
     } else {
         return(
