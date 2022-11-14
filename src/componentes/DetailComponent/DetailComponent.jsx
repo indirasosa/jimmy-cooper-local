@@ -26,7 +26,7 @@ export const DetailComponent = ({detalle})=> {
                 <div className="terminarCompra">
                     <div className="px-2">
                         <Link to="/">
-                           <Button variant="outline-dark">Ver más productos</Button>
+                           <Button variant="outline-dark">Seguir comprando</Button>
                         </Link>
                     </div>
                     <div className="px-2">

@@ -8,6 +8,17 @@ import { CartWidget } from '../CartWidget/CartWidget';
 import {Link, NavLink} from "react-router-dom";
 
 export const NavBar = () => {
+  const categoriesNavBar = [
+    {url:"/", name:"Inicio"},
+    {url:"/contacto", name:"Contacto"}
+    ]
+  const categoriesDropDown = [
+    {url:"/category/productos", name:"Todos los productos"},
+    {url:"/category/remeras", name:"Remeras"},
+    {url:"/category/pantalones", name:"Pantalones"},
+    {url:"/category/abrigos", name:"Abrigos"},
+    {url:"/category/accesorios", name:"Accesorios"}
+  ]
     return (
       <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -17,28 +28,9 @@ export const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link >
-              <NavLink to="/" className= {({isActive})=> isActive === true ? "claseActiva" : "claseInactiva"}>Inicio</NavLink>
-            </Nav.Link>
-            <Nav.Link>
-              <NavLink to="/contacto" className= {({isActive})=> isActive === true ? "claseActiva" : "claseInactiva"}>Contacto</NavLink>
-            </Nav.Link>
+            {categoriesNavBar.map(category=>(<Nav.Link><NavLink to={category.url} className= {({isActive})=> isActive === true ? "claseActiva" : "claseInactiva"}>{category.name}</NavLink></Nav.Link>))}
             <NavDropdown title="Productos" id="basic-nav-dropdown">
-            <NavDropdown.Item>
-                <Link className='claseDropDown' to="/category/productos">Todos los productos</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link className='claseDropDown' to="/category/remeras">Remeras</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link className='claseDropDown' to="/category/pantalones">Pantalones</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link className='claseDropDown' to="/category/abrigos">Abrigos</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link className='claseDropDown' to="/category/accesorios">Accesorios</Link>
-              </NavDropdown.Item>
+            {categoriesDropDown.map(category=>(<NavDropdown.Item><Link className='claseDropDown' to={category.url}>{category.name}</Link></NavDropdown.Item>))}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
@@ -49,3 +41,4 @@ export const NavBar = () => {
     </Navbar>
   );
 }
+
