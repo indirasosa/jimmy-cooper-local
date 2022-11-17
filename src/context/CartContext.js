@@ -53,13 +53,35 @@ export const CartProvider = ({children})=> {
         return precioTotal;
     }
 
+    //función para calcular la cantidad total de productos
+    const calcularTotalProductos = ()=>{
+        const totalProductos = productosCarrito.reduce((acc,curr)=> acc + curr.cantidad, 0);
+        return totalProductos;
+    }
+
+
     //función para eliminar un producto del carrito
     const eliminarProducto = (id)=>{
         const nuevosProductos = productosCarrito.filter((elemento)=>elemento.id !== id);
         setProductosCarrito(nuevosProductos)
     }
+
+    //función para eliminar todos los productos del carrito
+    const clear = ()=>{
+        const eliminarProductos = []
+        setProductosCarrito(eliminarProductos)
+    }
+
+    //variable para mensaje de "Aún no hay productos" o "Gracias por su compra"
+    const [compraEnviada, setCompraEnvida] = useState(false)
+    
+    //función para cambiar la variable de compraEnvida 
+    const estadoCompra = ()=>{
+        setCompraEnvida(true)
+    }
+
     return(
-        <CartContext.Provider value={{productosCarrito, addProduct, calcularPrecioTotal, eliminarProducto, isInCart}}>
+        <CartContext.Provider value={{productosCarrito, addProduct, calcularPrecioTotal, eliminarProducto, isInCart, calcularTotalProductos, clear, compraEnviada, estadoCompra}}>
             {children}
         </CartContext.Provider>
     )

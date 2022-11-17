@@ -10,7 +10,7 @@ export const CartWidget = () => {
         <>
         <Button variant="light">
             <img className='pe-2' src={ImagenCarrito} alt="ícono carrito" />
-            <Badge bg="secondary">{value.productosCarrito.length}</Badge>
+            <Badge bg="secondary">{value.calcularTotalProductos()}</Badge>
         </Button>
         </>
     )

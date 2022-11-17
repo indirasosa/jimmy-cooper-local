@@ -10,7 +10,6 @@ export const ItemListContainer = () => {
     
     const [catalogo, setCatalogo] = useState([])
 
-
     useEffect(()=>{
         const getProductos = async()=>{
             if(categoryName){
@@ -41,10 +40,11 @@ export const ItemListContainer = () => {
     },[categoryName])
     
     return (
-    <div className="d-flex row m-4 center">
-        <ItemList catalogo={catalogo}/>
-    </div>
-    )
+        <div className="d-flex row m-4 center">
+            <ItemList catalogo={catalogo}/>
+        </div>
+        )
+
 }
 
 
