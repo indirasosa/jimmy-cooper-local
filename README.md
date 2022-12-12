@@ -1,4 +1,4 @@
-Este sitio web es un proyecto para una tienda online de un local de ropa y accesorios llamado Jimmy Cooper
+Este sitio web es un proyecto para una tienda online de un local de ropa y accesorios llamado Jimmy Cooper creado con React
 
 Para poder usarlo en una computadora de forma local se deben seguir los siguientes pasos:
 
